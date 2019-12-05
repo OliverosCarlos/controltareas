@@ -8,7 +8,8 @@ import { HeaderComponent } from './componentes/header/header.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { FormtareaComponent } from './tareas/formtarea/formtarea.component';
 import { ListatareasComponent } from './tareas/listatareas/listatareas.component';
-import { FormusuariosComponent } from './usuarios/formusuarios/formusuarios.component';
+import { ListausuariosComponent } from './usuarios/listausuarios/listausuarios.component';
+import { FormusuarioComponent } from './usuarios/formusuario/formusuario.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormusuariosComponent } from './usuarios/formusuarios/formusuarios.comp
     FooterComponent,
     FormtareaComponent,
     ListatareasComponent,
-    FormusuariosComponent
+    ListausuariosComponent,
+    FormusuarioComponent
   ],
   imports: [
     BrowserModule,
