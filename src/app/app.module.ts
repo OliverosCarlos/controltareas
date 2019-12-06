@@ -19,6 +19,8 @@ import { ListatareasComponent } from './tareas/listatareas/listatareas.component
 import { ListausuariosComponent } from './usuarios/listausuarios/listausuarios.component';
 import { FormusuarioComponent } from './usuarios/formusuario/formusuario.component';
 import { HomeComponent } from './page/home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './usuarios/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HomeComponent } from './page/home/home.component';
     ListatareasComponent,
     ListausuariosComponent,
     FormusuarioComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

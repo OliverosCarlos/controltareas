@@ -1,1 +1,63 @@
-<p>formusuario works!</p>
+<div class="container">
+<div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <label text-align="center">
+                    Group Tasks
+                </label>
+            </li>
+            <li>
+          <img src="../../imagenes/usr.png" width="100" height="100" class="img-responsive center-block"/><hr>
+        </li>
+            <li>
+                <a href="#">Información personal</a>
+            </li>
+            <li>
+                <a href="#">Tareas</a>
+            </li>
+            <li>
+                <a href="#">Pagina principal</a>
+            </li>
+            <li>
+                <a href="#">Cerrar sesión</a>
+            </li>
+            <li>
+                <a href="#">Nosotros</a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+</div>
+
+<form class="contusuario">
+    <div class="form-group">
+             <label>Nombre completo</label>
+             <input type="nombre_u"  name="nombre_u" class="form-control" required />
+             </div>
+    <div class="form-group">
+             <label>Edad</label>
+             <input type="edad_u"  name="edad_u" class="form-control" />
+             </div>   
+    <div class="form-group">
+                <label>Ocupación  </label>
+                <select>
+                   <option value="est">Estudiante</option>
+                   <option value="prof">Profesor</option>
+                   <option value="otro">Otro</option>
+                 </select>
+                </div> 
+    <div class="form-group">
+             <label>Correo electronico</label>
+             <input type="email"  name="email" class="form-control" required email />
+             </div>    
+  <div class="form-group">
+            <label for="contra" >Contraseña</label>
+            <input type="password" class="form-control" name="pass">
+            </div>
+<br>
+    <button type="submit" class="btn btn-login  btn-secondary  btn-block">Guardar cambios</button> 
+</form>
+</div>

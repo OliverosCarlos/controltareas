@@ -6,6 +6,8 @@ import { FormusuarioComponent } from './usuarios/formusuario/formusuario.compone
 import { ListausuariosComponent } from './usuarios/listausuarios/listausuarios.component'
 import { FormtareaComponent } from './tareas/formtarea/formtarea.component'
 import { ListatareasComponent } from './tareas/listatareas/listatareas.component'
+import { LoginComponent } from './login/login.component'
+import { RegistroComponent } from './usuarios/registro/registro.component'
 const routes: Routes = [
   
   {
@@ -23,6 +25,14 @@ const routes: Routes = [
   {
     path: 'tareas/lista-tareas',
     component:ListatareasComponent
+  },
+  {
+    path: 'login/login-usuarios',
+    component:LoginComponent
+  },
+  {
+    path: 'usuarios/registro-usuarios',
+    component:RegistroComponent
   },
   {
     path: '**',
