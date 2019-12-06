@@ -1,1 +1,13 @@
-<p>listatareas works!</p>
+<div *ngFor="let tarea of tareas">
+
+    <div class="card">
+      <div class="card-header">{{tarea.data().nombre}}</div>
+      <div class="card-body">{{tarea.data().desc}}</div> 
+      <div class="card-footer">
+        <button>editar</button>
+        <button>Actualizar</button>
+      </div>
+    </div>
+    
+  </div>
+  

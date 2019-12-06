@@ -1,5 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule,FirestoreSettingsToken } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
+import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +18,7 @@ import { FormtareaComponent } from './tareas/formtarea/formtarea.component';
 import { ListatareasComponent } from './tareas/listatareas/listatareas.component';
 import { ListausuariosComponent } from './usuarios/listausuarios/listausuarios.component';
 import { FormusuarioComponent } from './usuarios/formusuario/formusuario.component';
+import { HomeComponent } from './page/home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +29,20 @@ import { FormusuarioComponent } from './usuarios/formusuario/formusuario.compone
     FormtareaComponent,
     ListatareasComponent,
     ListausuariosComponent,
-    FormusuarioComponent
+    FormusuarioComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    NgbModule,
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide:FirestoreSettingsToken,useValue:{}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
