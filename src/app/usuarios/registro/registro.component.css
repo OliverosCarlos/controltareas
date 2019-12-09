@@ -8,8 +8,7 @@
     float:left;
     width:100%;
     padding : 60px 0;
-    height: 500px;
-    
+    height: 600px;
     }
     .banner-sec{background:rgb(255, 255, 255) no-repeat left bottom; background-size:cover; min-height:500px; border-radius: 0 10px 10px 0; padding:0;}
     .container{background:rgb(255, 255, 255);
@@ -41,5 +40,9 @@
         font-size:10px; 
         color: rgb(0,0,0);
     }
-   
+   .imagenL
+   {
+    color: rgb(53, 124, 82);
+
+   }
     

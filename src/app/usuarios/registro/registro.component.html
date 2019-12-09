@@ -7,12 +7,20 @@
      <form class="registro">
         <div class="form-group">
                  <label>Nombre completo</label>
-                 <input type="nombre_u"  name="nombre_u" class="form-control" required />
+                 <input type="text" name="nombre_u" [(ngModel)]="usuario.nombre_usuario"  class="form-control" required />
                  </div>
         <div class="form-group">
                  <label>Edad</label>
-                 <input type="edad_u"  name="edad_u" class="form-control" />
+                 <input type="number"  name="edad_u"   [(ngModel)]="usuario.edad" class="form-control" />
                  </div>   
+         <div class="form-group">
+            <label class="imagenL">Selecciona una imagen de perfil</label>
+                  <input name="image"
+                  style="display: none" [(ngModel)]="usuario.ruta_img_usuario"
+                  type="file" (change)="onFileUpload($event)"
+                  #fileInput>
+                <button (click)="fileInput.click()">Agregar imagen</button>
+                </div>
         <div class="form-group">
                     <label>Ocupación  </label>
                     <select>
@@ -23,14 +31,14 @@
                     </div> 
         <div class="form-group">
                  <label>Correo electronico</label>
-                 <input type="email"  name="email" class="form-control" required email />
+                 <input type="email"  name="email" class="form-control"   [(ngModel)]="usuario.correo" required email />
                  </div>    
       <div class="form-group">
                 <label for="contra" >Contraseña</label>
-                <input type="password" class="form-control" name="pass">
+                <input type="password" class="form-control" [(ngModel)]="usuario.contrasena_usuario" name="pass">
                 </div>
   <br>
-        <button type="submit" class="btn btn-login  btn-success btn-lg btn-block">Registrarse</button> 
+        <button type="submit" class="btn btn-login  btn-success btn-lg btn-block" >Registrarse</button> 
     </form>
   </div>
   </div>
