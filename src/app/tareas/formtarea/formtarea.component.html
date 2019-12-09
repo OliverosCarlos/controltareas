@@ -1,21 +1,34 @@
-<div class="row mt-3">
+<div class="row m-3">
     <div class="col-md-4 offset-md-2">
       <div class="card">
         <div class="card-body">
           <form>
-            <div class="form-group">
-                <input type="text" name="title"  [(ngModel)]="tarea.nombre_tarea" id="title" placeholder="Nombre" autofocus>
+
+
+            <div class="row">
+              <div class="col">
+                  <div class="form-group">
+                      <input type="text" name="nombre_tarea"  [(ngModel)]="tarea.nombre_tarea" id="title" placeholder="Nombre" autofocus>
+                  </div>
+                  <div class="form-group">
+                      <input type="text" name="descripcion_tarea"  [(ngModel)]="tarea.descripcion_tarea" id="description" placeholder="Descripción">
+                  </div>
+                  <div class="form-group">
+                      <input name="image"
+                      style="display: none" [(ngModel)]="tarea.ruta_img_tarea"
+                      type="file" (change)="onFileUpload($event)"
+                      #fileInput>
+                    <button (click)="fileInput.click()">Select File</button>
+                  </div>
+              </div>
+              <div class="col">
+                <img src="../../../assets/to-do.png" style="width: 100px; height: 100px;" alt="">
+              </div>
             </div>
-            <div class="form-group">
-                <input type="text" name="description"  [(ngModel)]="tarea.descripcion_tarea" id="description" placeholder="Descripción">
-            </div>
-            <div class="form-group">
-                <input name="image"
-                style="display: none" [(ngModel)]="tarea.ruta_img_tarea"
-                type="file" (change)="onFileUpload($event)"
-                #fileInput>
-              <button (click)="fileInput.click()">Select File</button>
-            </div>
+
+
+
+
             <div class="form-group">
                 <button class="btn btn-success btn-block" (click)="saveTarea()">Guardar</button>
             </div>
@@ -24,7 +37,7 @@
       </div>
     </div>
 
-    <div class="col-md-4">
+    <!-- <div class="col-md-4">
         <div class="card card-body text-center">
           <div class="image-preview" >
             <img id="imagePreview" 
@@ -35,9 +48,24 @@
           <h1>{{tarea.nombre_tarea == '' ? 'Tu titulo' : tarea.nombre_tarea}}</h1>
           <h2>{{tarea.descripcion_tarea == '' ? 'Tu descripción' : tarea.descripcion_tarea}}</h2>
         </div>
-    </div>    
+    </div>     -->
    
     </div>
 
     <!-- <img src="https://roboproyecto.appspot.com/uploads/profile_6m6fx1kemeu.png" alt=""> -->
   
+    <div class="row col-12 col-md-12 m-0" style="background-color: #004B45;">
+      <div class="row">
+        <div class="col col-4 col-md-4">
+            <div>
+                <img src="../../../assets/team.png" alt="">
+              </div>
+        </div>
+        <div class="col col-8 col-md-8 border">
+          <div class="m-3 col col-12 col-md-12" style="background-color: #003136; border-radius: 10px; " >
+          carlos
+          </div>
+        </div>
+      </div>
+      
+    </div>

@@ -3,25 +3,20 @@
     <hr>
     <thead class="thead-light">
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Id</th>
             <th scope="col">Nombre</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Ocupación</th>
             <th scope="col">Email</th>
+            <th scope="col">Imagen</th>
         </tr>
     </thead>
-    <tbody>
-     <!-- <tr *ngFor="let author of authors.data; let i = index">
+    <tbody *ngFor="let usuario of usuarios">
          <tr>
-            <td>{{ i + 1 }}</td>
-            <td>{{ author._id }}</td>
-            <td>{{ author.name }}</td>
-            <td>{{ author.email }}</td>
-        </tr>
-        -->  
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{usuario.data().nombre_susuario}}</td>
+            <td>{{usuario.data().edad}}</td>
+            <td>{{usuario.data().ocupacion}}</td>
+            <td>{{usuario.data().correo}}</td>
+            <td>{{usuario.data().ruta_img_usuario}}</td>
         </tr>
     </tbody>
 </table>

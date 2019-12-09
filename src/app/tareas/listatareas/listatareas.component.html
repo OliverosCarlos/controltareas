@@ -1,13 +1,12 @@
-<div *ngFor="let tarea of tareas">
-
+<div class="row col-12 m-3">
+  <div class="col-4 col-md-4" *ngFor="let tarea of tareas">
     <div class="card">
-      <div class="card-header">{{tarea.data().nombre}}</div>
-      <div class="card-body">{{tarea.data().desc}}</div> 
+      <div class="card-header">{{tarea.data().nombre_tarea}}</div>
+      <div class="card-body">{{tarea.data().descripcion_tarea}}</div>
       <div class="card-footer">
-        <button>editar</button>
-        <button>Actualizar</button>
+        <button class="btn btn-warning">editar</button>
+        <button class="btn btn-info">Actualizar</button>
       </div>
     </div>
-    
   </div>
-  
+</div>

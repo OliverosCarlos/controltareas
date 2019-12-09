@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../../servicios/usuario.service';
+import { Usuario } from '../../models/Usuario';
 
 @Component({
   selector: 'app-listausuarios',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListausuariosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private usuServ:UsuarioService) { }
 
+  usuarios = [];
   ngOnInit() {
+    this.getListaUsuarios();
   }
 
+  getListaUsuarios(){
+    this.usuServ.listaUsuarios().get()
+      .forEach((lista) => {
+
+        lista.forEach((doc)=>{
+
+          this.usuarios.push(doc)
+          console.log("id: "+doc.id+" datos: "+doc.data)
+        
+        })
+
+      })
+  }
 }
