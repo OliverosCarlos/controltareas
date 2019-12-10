@@ -1,22 +1,18 @@
 <label>Lista de usuarios registrados</label>
 <table class="table table-hover  table-light" >
-    <hr>
     <thead class="thead-light">
-        <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Edad</th>
             <th scope="col">Ocupación</th>
             <th scope="col">Email</th>
             <th scope="col">Imagen</th>
-        </tr>
     </thead>
-    <tbody *ngFor="let usuario of usuarios">
-         <tr>
+    <tbody *ngFor="let usuario of usuarios; let i = index">
             <td>{{usuario.data().nombre_susuario}}</td>
             <td>{{usuario.data().edad}}</td>
             <td>{{usuario.data().ocupacion}}</td>
             <td>{{usuario.data().correo}}</td>
-            <td>{{usuario.data().ruta_img_usuario}}</td>
-        </tr>
+            <td><img [src]="profileUrl[i] | async" alt="" style="width: 100%;"></td>
+            <hr>
     </tbody>
 </table>

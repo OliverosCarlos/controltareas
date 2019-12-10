@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore,AngularFirestoreCollection} from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { Tarea } from '../models/Tarea';
 import { promise } from 'protractor';
 @Injectable({

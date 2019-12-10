@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../servicios/usuario.service';
 import { Usuario } from '../../models/Usuario';
 
+import { AngularFireStorage } from '@angular/fire/storage';
+
 @Component({
   selector: 'app-listausuarios',
   templateUrl: './listausuarios.component.html',
@@ -9,8 +11,8 @@ import { Usuario } from '../../models/Usuario';
 })
 export class ListausuariosComponent implements OnInit {
 
-  constructor(private usuServ:UsuarioService) { }
-
+  constructor(private usuServ:UsuarioService, private storage: AngularFireStorage) {}
+  profileUrl= [];
   usuarios = [];
   ngOnInit() {
     this.getListaUsuarios();
@@ -24,9 +26,16 @@ export class ListausuariosComponent implements OnInit {
 
           this.usuarios.push(doc)
           console.log("id: "+doc.id+" datos: "+doc.data)
-        
+          this.getUrl(doc.data().ruta_img_usuario);
         })
 
       })
   }
+
+  getUrl(filePath:string){
+    console.log(filePath);
+
+    const ref = this.storage.ref(filePath);
+    this.profileUrl.push(ref.getDownloadURL());
+}
 }

@@ -7,15 +7,15 @@
      <form class="registro">
         <div class="form-group">
                  <label>Nombre completo</label>
-                 <input type="nombre_u"  name="nombre_u" class="form-control" required />
+                 <input type="nombre_u" [(ngModel)]="usuario.nombre_usuario" name="nombre_u" class="form-control" required />
                  </div>
         <div class="form-group">
                  <label>Edad</label>
-                 <input type="edad_u"  name="edad_u" class="form-control" />
+                 <input type="edad_u" [(ngModel)]="usuario.edad" name="edad_u" class="form-control" />
                  </div>   
         <div class="form-group">
                     <label>Ocupación  </label>
-                    <select>
+                    <select >
                        <option value="est">Estudiante</option>
                        <option value="prof">Profesor</option>
                        <option value="otro">Otro</option>
@@ -23,16 +23,44 @@
                     </div> 
         <div class="form-group">
                  <label>Correo electronico</label>
-                 <input type="email"  name="email" class="form-control" required email />
+                 <input type="email" [(ngModel)]="usuario.correo" name="email" class="form-control" required email />
                  </div>    
       <div class="form-group">
                 <label for="contra" >Contraseña</label>
-                <input type="password" class="form-control" name="pass">
+                <input type="password" [(ngModel)]="usuario.contrasena_usuario" class="form-control" name="pass">
                 </div>
+
+      <!-- SUBIR IMAGEN -->
+      <div class="form-group">
+            <input name="image"
+            style="display: none" 
+            type="file" (change)="onFileUpload($event)"
+            #fileInput>
+          <button (click)="fileInput.click()">Select File</button>
+          <div>{{ uploadPercent | async }}</div>
+          <!-- <a [href]="downloadURL | async">{{ downloadURL | async }}</a> -->
+        </div>
+        <!-- ================================ ================================== -->
   <br>
-        <button type="submit" class="btn btn-login  btn-success btn-lg btn-block">Registrarse</button> 
+        <button type="submit" (click)="saveUsuario()" class="btn btn-login  btn-success btn-lg btn-block">Registrarse</button> 
     </form>
   </div>
+
   </div>
         </div>   
      </section>
+
+     <div class="col-md-4">
+         <div class="card card-body text-center">
+           <div class="image-preview" >
+             <img id="imagePreview" 
+             [src]="imagePreview != null ? imagePreview :
+             usuario.ruta_img_usuario != null ? '../../../assets/no-imagen.png' :
+                    '../../../assets/no-imagen.png' " class="card-img-top" >
+           </div>
+           <h1>{{usuario.nombre_usuario == '' ? 'Nombre' : usuario.nombre_usuario}}</h1>
+           <h2>{{usuario.edad == '' ? 'Edad' : usuario.edad}}</h2>
+           <h2>{{usuario.ocupacion == '' ? 'Ocupación' : usuario.ocupacion}}</h2>
+           <h2>{{usuario.correo == '' ? 'Correo' : usuario.correo}}</h2>
+         </div>
+     </div>  

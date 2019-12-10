@@ -6,6 +6,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Tarea } from '../../models/Tarea';
 import { TareaService } from '../../servicios/tarea.service';
 
+import { AngularFireStorage } from '@angular/fire/storage';
+
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 @Component({
   selector: 'app-formtarea',
   templateUrl: './formtarea.component.html',
@@ -15,28 +19,55 @@ export class FormtareaComponent implements OnInit {
   tarea: Tarea  = {
     nombre_tarea      :'',
     descripcion_tarea :'',
-    fecha_inicio      :'',
-    fecha_final       :'',
-    ruta_img_tarea    :''
+    fecha_inicio      :new Date(),
+    fecha_final       :new Date(),
+    ruta_img_tarea    :null
   };
-  constructor(private tareaServicio: TareaService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  
+  constructor(private tareaServicio: TareaService, private router: Router, private activatedRoute: ActivatedRoute,private storage: AngularFireStorage) { }
 
   selectedFile: File;
   imagePreview: string | ArrayBuffer;
   edit: Boolean = false;
 
+  fileRef:any;
+  file;
+  url:string;
+  uploadPercent: Observable<number>;
+  
   ngOnInit() {
   }
 
 
   onFileUpload(event){
-    console.log(event.target.files);
+
+    //vista previa de imagen
+    console.log(event.target.files[0]);
+    var filename:string = event.target.files[0].name;
     this.selectedFile = event.target.files[0];
     const reader = new FileReader();
     reader.onload = () => {
     this.imagePreview = reader.result;
     };
     reader.readAsDataURL(this.selectedFile);
+
+    //upload to firestorage
+    
+    this.file = event.target.files[0];
+    const filePath = filename;
+    this.fileRef = this.storage.ref(filePath);
+    const task = this.fileRef.put(this.file);
+    this.tarea.ruta_img_tarea = filePath;
+    // observe percentage changes
+    this.uploadPercent = task.percentageChanges();
+
+    
+  }
+
+  saveTarea(){
+    console.log(this.tarea);
+    this.tareaServicio.crearTarea(this.tarea);
+        
   }
 
 

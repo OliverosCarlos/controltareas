@@ -15,10 +15,12 @@
                   </div>
                   <div class="form-group">
                       <input name="image"
-                      style="display: none" [(ngModel)]="tarea.ruta_img_tarea"
+                      style="display: none" 
                       type="file" (change)="onFileUpload($event)"
                       #fileInput>
                     <button (click)="fileInput.click()">Select File</button>
+                    <div>{{ uploadPercent | async }}</div>
+                    <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
                   </div>
               </div>
               <div class="col">
@@ -37,7 +39,7 @@
       </div>
     </div>
 
-    <!-- <div class="col-md-4">
+    <div class="col-md-4">
         <div class="card card-body text-center">
           <div class="image-preview" >
             <img id="imagePreview" 
@@ -48,7 +50,7 @@
           <h1>{{tarea.nombre_tarea == '' ? 'Tu titulo' : tarea.nombre_tarea}}</h1>
           <h2>{{tarea.descripcion_tarea == '' ? 'Tu descripción' : tarea.descripcion_tarea}}</h2>
         </div>
-    </div>     -->
+    </div>    
    
     </div>
 

@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule,FirestoreSettingsToken } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
 
 import { environment } from '../environments/environment';
 
@@ -46,7 +46,10 @@ import { RegistroComponent } from './usuarios/registro/registro.component';
     AngularFireStorageModule,
     ReactiveFormsModule
   ],
-  providers: [{provide:FirestoreSettingsToken,useValue:{}}],
+  providers: [
+    {provide:FirestoreSettingsToken,useValue:{}},
+    {provide: StorageBucket, useValue: 'gs://tareas-ceb80.appspot.com'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
