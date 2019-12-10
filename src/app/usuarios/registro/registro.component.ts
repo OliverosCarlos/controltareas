@@ -33,9 +33,10 @@ usuario:Usuario = {
   file;
   url:string;
   uploadPercent: Observable<number>;
+
   ngOnInit() {
   }
-
+  
   onFileUpload(event){
 
     //vista previa de imagen

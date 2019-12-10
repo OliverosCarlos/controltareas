@@ -13,6 +13,14 @@
                  <label>Edad</label>
                  <input type="edad_u" [(ngModel)]="usuario.edad" name="edad_u" class="form-control" />
                  </div>   
+         <div class="form-group">
+            <label class="imagenL">Selecciona una imagen de perfil</label>
+                  <input name="image"
+                  style="display: none" [(ngModel)]="usuario.ruta_img_usuario"
+                  type="file" (change)="onFileUpload($event)"
+                  #fileInput>
+                <button (click)="fileInput.click()">Agregar imagen</button>
+                </div>
         <div class="form-group">
                     <label>Ocupación  </label>
                     <select >
