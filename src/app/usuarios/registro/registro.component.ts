@@ -8,6 +8,7 @@ import { UsuarioService } from '../../servicios/usuario.service';
 
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -65,6 +66,11 @@ usuario:Usuario = {
   saveUsuario(){
     console.log(this.usuario);
     this.usuServ.crearUsuario(this.usuario);
+  }
+
+  onSubmit(form:NgForm){
+    console.log("Formulado enviado")
+    console.log(form)
   }
 
 }

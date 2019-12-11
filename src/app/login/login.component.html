@@ -4,26 +4,23 @@
     <div class="col-md-4 login-sec">
         <h2 class="text-center">Iniciar sesión</h2>
 <!---------------------------------------Formulario de login----------------------------------->
-<form class="login-form">
+<form class="login-form" (ngSubmit)="login( fl )" #fl="ngForm">
   <div class="form-group">
            <label>Correo electronico</label>
-           <input type="email"  name="email" class="form-control" required email />
-     <!--<span *ngif="f.submitted & f.controls['email'].errors" class="text-danger">El correo es obligatorio</span>--->   
-           </div>
+           <input type="email"  name="email" class="form-control" required email [(ngModel)]="usuario.correo"/>
+       </div>
+       <span *ngIf="fl.submitted && fl.controls['email'].errors"
+       class="text-danger">El correo es obligatorio</span>
      
-<div class="form-group">
-  <label for="contra" >Contraseña</label>
-  <input type="password" class="form-control" name="pass">
-<!--<span *ngif="f.submitted & f.controls['pass'].errors" class="text-danger">Contraseña obligatoria</span>-->  
-</div>
-<!--  <form class="login-form" (ngSubmit)="onSubmit(f)" 
-#f="ngForm">-->
-
+  <div class="form-group">
+          <label for="contra">Contraseña</label>
+          <input type="password" class="form-control" [(ngModel)]="usuario.contrasena_usuario" name="pass" required>
+      </div>
+      <span *ngIf="fl.submitted && fl.controls['pass'].invalid"
+      class="text-danger">La contraseña es obligatorio y debe ser > a 5 caracteres</span>
 <br>
-  <button type="submit" class="btn btn-login float-left btn-success">Ingresar</button>
+  <button type="submit" class="btn btn-login float-left btn-success" >Ingresar</button>
   <button type="submit" class="btn btn-login float-right btn-primary " [routerLink]="['/usuarios/registro-usuarios']">Registrate</button>
-  <br><br><br>
-  <p><a href=# [routerLink]="['/usuarios/registro-usuarios']" >Olvide contraseña</a></p>
 </form>
 <!-----------------------------Carrusel diseño de login------------------->
 </div>

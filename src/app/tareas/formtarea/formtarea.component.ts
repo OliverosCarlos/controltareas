@@ -10,6 +10,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-formtarea',
   templateUrl: './formtarea.component.html',
@@ -68,6 +69,11 @@ export class FormtareaComponent implements OnInit {
     console.log(this.tarea);
     this.tareaServicio.crearTarea(this.tarea);
         
+  }
+
+  onSubmit(form:NgForm)
+  {
+
   }
 
 

@@ -2,14 +2,16 @@
     <div class="col-md-4 offset-md-2">
       <div class="card">
         <div class="card-body">
-          <form>
+          <form   (ngSubmit)="onSubmit(ft)" #ft="ngForm">
 
 
             <div class="row">
               <div class="col">
                   <div class="form-group">
-                      <input type="text" name="nombre_tarea"  [(ngModel)]="tarea.nombre_tarea" id="title" placeholder="Nombre" autofocus>
+                      <input type="text" name="nombre_tarea"  [(ngModel)]="tarea.nombre_tarea" id="title" placeholder="Nombre" autofocus required>
                   </div>
+                  <span *ngIf="ft.submitted && ft.controls['nombre_tarea'].errors"
+                 class="text-danger">Es necesario el nombre de la tarea</span>
                   <div class="form-group">
                       <input type="text" name="descripcion_tarea"  [(ngModel)]="tarea.descripcion_tarea" id="description" placeholder="Descripción">
                   </div>
