@@ -29,4 +29,8 @@ export class UsuarioService {
       console.log("Lista usuarios: "+this.usuarioref);
     return this.usuarioref;
   }
+
+     
+     
+  
 }
