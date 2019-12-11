@@ -36,30 +36,39 @@
     </ul>
 <!-- /#sidebar-wrapper -->
 </div>
-<form class="contusuario">
-<div class="form-group">
-         <label>Nombre completo</label>
-         <input type="text"  name="nombre_u" class="form-control" required />
-         </div>
-<div class="form-group">
-         <label>Edad</label>
-         <input type="number"  name="edad_u" class="form-control" />
-         </div>  
-         
-            <label>Ocupación  </label>
-            <select>
-               <option value="est">Estudiante</option>
-               <option value="prof">Profesor</option>
-               <option value="otro">Otro</option>
-             </select>
-<div class="form-group">
-         <label>Correo electronico</label>
-         <input type="email"  name="email" class="form-control" required email />
-         </div>    
-<div class="form-group">
-        <label for="contra" >Contraseña</label>
-        <input type="password" class="form-control" name="pass">
-        </div>
+<form class="contusuario" >
+    <div class="form-group">
+             <label>Nombre completo</label>
+             <input type="text" [(ngModel)]="usuario.nombre_usuario" name="nombre_u" class="form-control" required minlength="2" />
+             </div>
+    <div class="form-group">
+             <label>Edad</label>
+             <input type="number" [(ngModel)]="usuario.edad" name="edad_u" class="form-control" />
+             </div>   
+     <div class="form-group">
+        <label class="imagenL">Selecciona una imagen de perfil</label>
+              <input name="image"
+              style="display: none" [(ngModel)]="usuario.ruta_img_usuario"
+              type="file" (change)="onFileUpload($event)"
+              #fileInput>
+            <button (click)="fileInput.click()">Agregar imagen</button>
+            </div>
+    <div class="form-group">
+                <label>Ocupación  </label>
+                <select >
+                   <option value="est">Estudiante</option>
+                   <option value="prof">Profesor</option>
+                   <option value="otro">Otro</option>
+                 </select>
+                </div> 
+    <div class="form-group">
+             <label>Correo electronico</label>
+             <input type="email" [(ngModel)]="usuario.correo" name="email" class="form-control" required email />
+             </div>   
+  <div class="form-group">
+            <label for="contra" >Contraseña</label>
+            <input type="password" [(ngModel)]="usuario.contrasena_usuario" class="form-control" name="pass" minlength="6" required>
+            </div>
 <br>
-<button type="submit" class="btn btn-login  btn-secondary  btn-block">Guardar cambios</button> 
+    <button type="submit"  class="btn btn-login  btn-success btn-lg btn-block">Guardar Cambios</button> 
 </form>

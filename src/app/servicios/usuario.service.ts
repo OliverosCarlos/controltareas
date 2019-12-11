@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore,AngularFirestoreCollection} from '@angular/fire/firestore';
+import { AngularFirestore,AngularFirestoreCollection, DocumentData} from '@angular/fire/firestore';
 import { Usuario } from '../models/Usuario'
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +10,7 @@ export class UsuarioService {
 
   usuarioref:AngularFirestoreCollection<Usuario> = null;
 
-  constructor(private db:AngularFirestore) {
+  constructor(private db:AngularFirestore,private router: Router) {
     this.usuarioref = db.collection(this.dbPath);
    }
 
@@ -30,7 +31,23 @@ export class UsuarioService {
     return this.usuarioref;
   }
 
-     
-     
+
+   logUsr(email:string,pass:string){
+    this.usuarioref.ref.where('correo','==',email).where('contrasena_usuario', '==',pass).get()
+    .then(snapshot => {
+      if (snapshot.empty) {
+        console.log('No existe ese correo');
+        alert("ERROR, correo ó contraseña incorrectas")
+        return;
+      }
+      snapshot.forEach(doc => {
+        console.log("Existe : "+doc.id, '=>', doc.data());
+        this.router.navigate(['']);
+      });
+    })
+    .catch(err => {
+      console.log('Error getting documents', err);
+    });
+   }  
   
 }
