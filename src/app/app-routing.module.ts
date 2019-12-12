@@ -50,6 +50,10 @@ const routes: Routes = [
     component:RegistroComponent
   },
   {
+    path: 'horario/formulario-horario',
+    component: FormularioHorarioComponent
+  },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: 'home'
