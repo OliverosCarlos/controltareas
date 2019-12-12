@@ -1,11 +1,82 @@
-<div class="container">
-    <div class="row">
-        Lunes
+<div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1>Horas disponibles</h1>      
+          <p>Horas disponibles para el control de tareas.</p>
+        </div>
     </div>
-    <div class="row">
-            <div class="col">
-                <div class="row">12 hrs</div>
-                <div class="row"><input type="checkbox" name="" id=""></div>
+<div class="col col-11 col-md-11 m-auto">
+
+    <button class="accordion"  >Lunes</button>
+<div class="panel">
+        <div class="row" >   
+                        <div class="col" *ngFor="let i of horas">
+                                <div class="row p-3" style="background-color: #003136; color: white;">{{i}} hrs</div>
+                                <div class="row p-3" style="background-color: #004B45; color: white;"><input type="checkbox" name="" id=""></div>
+                        </div>   
+                         
+        </div>
+</div>
+
+<button class="accordion" >Martes</button>
+<div class="panel">
+        <div class="row" >
+                        <div class="col" *ngFor="let i of horas">
+                                <div class="row p-3" style="background-color: #003136; color: white;">{{i}} hrs</div>
+                                <div class="row p-3" style="background-color: #004B45; color: white;"><input type="checkbox" name="" id=""></div>
+                        </div>   
+       
             </div>
-    </div>
+</div>
+
+<button class="accordion" >Miercoles</button>
+<div class="panel">
+        <div class="row" >
+                        <div class="col" *ngFor="let i of horas">
+                                <div class="row p-3" style="background-color: #003136; color: white;">{{i}} hrs</div>
+                                <div class="row p-3" style="background-color: #004B45; color: white;"><input type="checkbox" name="" id=""></div>
+                        </div>   
+                         
+            </div>
+</div>
+<button class="accordion" >Jueves</button>
+<div class="panel">
+        <div class="row" >
+                        <div class="col" *ngFor="let i of horas">
+                                <div class="row p-3" style="background-color: #003136; color: white;">{{i}} hrs</div>
+                                <div class="row p-3" style="background-color: #004B45; color: white;"><input type="checkbox" name="" id=""></div>
+                        </div>   
+                         
+            </div>
+</div>
+<button class="accordion" >Viernes</button>
+<div class="panel">
+        <div class="row" >
+                        <div class="col" *ngFor="let i of horas">
+                                <div class="row p-3" style="background-color: #003136; color: white;">{{i}} hrs</div>
+                                <div class="row p-3" style="background-color: #004B45; color: white;"><input type="checkbox" name="" id=""></div>
+                        </div>   
+                         
+            </div>
+</div>
+<button class="accordion" >Sábado</button>
+<div class="panel">
+        <div class="row" >
+                        <div class="col" *ngFor="let i of horas">
+                                <div class="row p-3" style="background-color: #003136; color: white;">{{i}} hrs</div>
+                                <div class="row p-3" style="background-color: #004B45; color: white;"><input type="checkbox" name="" id=""></div>
+                        </div>   
+                         
+            </div>
+</div>
+<button class="accordion" >Domingo</button>
+<div class="panel">
+        <div class="row" >
+                        <div class="col" *ngFor="let i of horas">
+                                <div class="row p-3" style="background-color: #003136; color: white;">{{i}} hrs</div>
+                                <div class="row p-3" style="background-color: #004B45; color: white;"><input type="checkbox" name="" id=""></div>
+                        </div>   
+                         
+            </div>
+</div>
+
 </div>
