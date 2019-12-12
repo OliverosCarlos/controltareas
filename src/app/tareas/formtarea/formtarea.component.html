@@ -29,7 +29,13 @@
                 <img src="../../../assets/to-do.png" style="width: 100px; height: 100px;" alt="">
               </div>
             </div>
-
+            <div class="row col-10 p-4 m-auto shadow-sm border-rounded">
+                <div class="col">Fecha entrega</div>
+                <div class="col">
+                  <input type="date" name="date" [(ngModel)]="date_order" id="date">
+                </div>
+                <i class="fas fa-calendar-alt fa-lg" ></i>
+              </div>
 
 
 
@@ -59,17 +65,22 @@
     <!-- <img src="https://roboproyecto.appspot.com/uploads/profile_6m6fx1kemeu.png" alt=""> -->
   
     <div class="row col-12 col-md-12 m-0" style="background-color: #004B45;">
+
       <div class="row">
-        <div class="col col-4 col-md-4">
+
+        <div class="col col-2 col-md-2">
+
             <div>
                 <img src="../../../assets/team.png" alt="">
-              </div>
+            </div>
+
         </div>
-        <div class="col col-8 col-md-8 border">
-          <div class="m-3 col col-12 col-md-12" style="background-color: #003136; border-radius: 10px; " >
-          carlos
+        <div class="div-team col col-10 col-md-10">
+          <div class=" m-3 col col-12 col-md-12" >
+                <app-listausuarios></app-listausuarios>
           </div>
         </div>
+
       </div>
       
     </div>

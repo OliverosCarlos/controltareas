@@ -41,6 +41,15 @@ export class ListatareasComponent implements OnInit {
     this.profileUrl.push(ref.getDownloadURL());
 }
 
+deleteTarea(id:string){
+  alert(id);
+  this.tarSer
+  .eliminarTarea(id)
+  .catch(err => console.log(err) );
+  this.getListaTareas();
+}
+
+
   // get notified when the download URL is available
 //   task.snapshotChanges().pipe(
 //     finalize(() => {

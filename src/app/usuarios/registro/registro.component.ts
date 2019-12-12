@@ -20,7 +20,7 @@ usuario:Usuario = {
   nombre_usuario         : '',
   contrasena_usuario     : '',
   edad                   : '',
-  ocupacion              : '',
+  ocupacion              : 'Estudiante',
   correo                 : '',
   ruta_img_usuario       : ''
 };
@@ -36,6 +36,7 @@ usuario:Usuario = {
   uploadPercent: Observable<number>;
 
   ngOnInit() {
+    
   }
   
   onFileUpload(event){

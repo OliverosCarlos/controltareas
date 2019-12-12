@@ -35,8 +35,20 @@ export class FormtareaComponent implements OnInit {
   file;
   url:string;
   uploadPercent: Observable<number>;
-  
+  date_order: Date;
+
+  task:any;
+  id: string = ""
+  formReg = true
   ngOnInit() {
+    const params = this.activatedRoute.snapshot.params;
+    if (params.id) {
+      this.getTarea(params.id);
+      this.formReg = false
+      this.id = params.id
+
+    }
+
   }
 
 
@@ -66,13 +78,37 @@ export class FormtareaComponent implements OnInit {
   }
 
   saveTarea(){
-    console.log(this.tarea);
-    this.tareaServicio.crearTarea(this.tarea);
+    if(this.formReg){
+      console.log(this.tarea);
+      this.tarea.fecha_final = this.date_order;
+      this.tareaServicio.crearTarea(this.tarea);
+    }else{
+      console.log(this.tarea);
+      this.tarea.fecha_final = this.date_order;
+      this.tareaServicio.actualizarTarea(this.id,this.tarea);
+    }
         
   }
 
   onSubmit(form:NgForm)
   {
+
+  }
+
+  getTarea(id:string){
+    this.tareaServicio.listaTareas().get()
+    .forEach((snapshot) => {
+      snapshot.forEach((doc) => {
+        if(id==doc.id){
+          this.tarea = doc.data()
+        console.log(doc.id, '=>', doc.data());
+        }
+        
+      });
+    })
+    .catch((err) => {
+      console.log('Error getting documents', err);
+    });
 
   }
 

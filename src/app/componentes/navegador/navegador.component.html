@@ -1,5 +1,5 @@
   <nav class="navbar navbar-expand-sm navbar-dark sticky-top" style="background-color: #002525;">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" [routerLink]="['/home']">
       <img src="../../../assets/iconoNavegador.png" alt="" > 
     </a>
    
@@ -11,7 +11,7 @@
         <a class="nav-link" [routerLink]="['/usuarios/formulario-usuario']">Formulario usuario</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/usuarios/lista-usuarios']">Lista usuarios</a>
+        <a class="nav-link" [routerLink]="['/usuarios/lista-usuarios',1]">Lista usuarios</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/tareas/formulario-tarea']" >Formulario tarea</a>

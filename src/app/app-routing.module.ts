@@ -8,8 +8,15 @@ import { FormtareaComponent } from './tareas/formtarea/formtarea.component'
 import { ListatareasComponent } from './tareas/listatareas/listatareas.component'
 import { LoginComponent } from './login/login.component'
 import { RegistroComponent } from './usuarios/registro/registro.component'
+import { HomeComponent } from './page/home/home.component';
+import { FormularioHorarioComponent} from './horario/formulario-horario/formulario-horario.component';
+import { MostrarHorarioComponent } from './horario/mostrar-horario/mostrar-horario.component';
+
 const routes: Routes = [
-  
+  {
+    path: 'home',
+    component: HomeComponent
+  },
   {
     path: 'usuarios/formulario-usuario',
     component: FormusuarioComponent
@@ -19,7 +26,15 @@ const routes: Routes = [
     component:ListausuariosComponent
   },
   {
+    path: 'usuarios/lista-usuarios/:id',
+    component:ListausuariosComponent
+  },
+  {
     path: 'tareas/formulario-tarea',
+    component: FormtareaComponent
+  },
+  {
+    path: 'tareas/actualizar-tarea/:id',
     component: FormtareaComponent
   },
   {

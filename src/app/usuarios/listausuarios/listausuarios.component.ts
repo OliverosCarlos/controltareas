@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../servicios/usuario.service';
 import { Usuario } from '../../models/Usuario';
 
+import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
@@ -11,11 +12,20 @@ import { AngularFireStorage } from '@angular/fire/storage';
 })
 export class ListausuariosComponent implements OnInit {
 
-  constructor(private usuServ:UsuarioService, private storage: AngularFireStorage) {}
+  constructor(private usuServ:UsuarioService, private storage: AngularFireStorage,private router: Router, private activatedRoute: ActivatedRoute) {}
   profileUrl= [];
   usuarios = [];
+
+  listaGrupos = false;
   ngOnInit() {
+    const params = this.activatedRoute.snapshot.params;
+    if (params.id) {
+      console.log(params.id);
+      
+      this.listaGrupos = true;
+    }
     this.getListaUsuarios();
+    
   }
 
   getListaUsuarios(){

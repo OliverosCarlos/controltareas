@@ -21,6 +21,8 @@ import { FormusuarioComponent } from './usuarios/formusuario/formusuario.compone
 import { HomeComponent } from './page/home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './usuarios/registro/registro.component';
+import { FormularioHorarioComponent } from './horario/formulario-horario/formulario-horario.component';
+import { MostrarHorarioComponent } from './horario/mostrar-horario/mostrar-horario.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { RegistroComponent } from './usuarios/registro/registro.component';
     FormusuarioComponent,
     HomeComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    FormularioHorarioComponent,
+    MostrarHorarioComponent
   ],
   imports: [
     BrowserModule,

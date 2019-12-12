@@ -1,11 +1,17 @@
-<label>Lista de usuarios registrados</label>
-<table class="table table-hover  table-light" >
+<div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                  <h1>Usuarios</h1>      
+                  <p>Lista de usuarios registrados.</p>
+                </div>
+            </div>
+<table class="table table-hover  table-light m-auto" >
     <thead class="thead-light">
             <th scope="col">Nombre</th>
             <th scope="col">Edad</th>
             <th scope="col">Ocupación</th>
             <th scope="col">Email</th>
             <th scope="col">Imagen</th>
+            <th scope="col">Acciones</th>
     </thead>
     <tbody *ngFor="let usuario of usuarios; let i = index">
             <td>{{usuario.data().nombre_usuario}}</td>
@@ -13,6 +19,12 @@
             <td>{{usuario.data().ocupacion}}</td>
             <td>{{usuario.data().correo}}</td>
             <td><img [src]="profileUrl[i] | async" alt="" style="width: 100%;"></td>
+            <td *ngIf="!listaGrupos"><button class="btn btn-primary">Seleccionar</button></td>
+            <td *ngIf="listaGrupos">
+                    <button class="btn btn-warning m-1">Eliminar</button>
+                    <button class="btn btn-success m-1">Actualizar</button>
+                </td>
+            <!-- <td *ngIf="!listaGrupos">Actualizar</button></td> -->
             <hr>
     </tbody>
 </table>

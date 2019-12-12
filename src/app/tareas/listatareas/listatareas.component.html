@@ -3,12 +3,14 @@
     <div class="card">
       <div class="card-header">{{tarea.data().nombre_tarea}}</div>
       <div class="card-body">{{tarea.data().descripcion_tarea}}</div>
+      <!-- <div class="card-body">{{tarea.data().fecha_inicio}}</div> -->
+      <div class="card-body">{{tarea.data().fecha_final}}</div>
       <div class="card-body">
         <img [src]="profileUrl[i] | async" alt="" style="width: 100%;">
       </div>
       <div class="card-footer">
-        <button class="btn btn-warning">editar</button>
-        <button class="btn btn-info">Actualizar</button>
+        <button class="btn btn-warning" (click)="deleteTarea(tarea.id)">eliminar</button>
+        <button class="btn btn-info" [routerLink]="['/tareas/actualizar-tarea',tarea.id]">Actualizar</button>
       </div>
     </div>
   </div>
