@@ -8,6 +8,7 @@ import { FormtareaComponent } from './tareas/formtarea/formtarea.component'
 import { ListatareasComponent } from './tareas/listatareas/listatareas.component'
 import { LoginComponent } from './login/login.component'
 import { RegistroComponent } from './usuarios/registro/registro.component'
+import { FormularioHorarioComponent } from './horario/formulario-horario/formulario-horario.component';
 const routes: Routes = [
   
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'usuarios/registro-usuarios',
     component:RegistroComponent
+  },
+  {
+    path: 'horario/formulario-horario',
+    component:FormularioHorarioComponent
   },
   {
     path: '**',
