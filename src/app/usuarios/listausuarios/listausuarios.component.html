@@ -22,7 +22,7 @@
             <td *ngIf="!listaGrupos"><button class="btn btn-primary">Seleccionar</button></td>
             <td *ngIf="listaGrupos">
                     <button class="btn btn-warning m-1">Eliminar</button>
-                    <button class="btn btn-success m-1">Actualizar</button>
+                    <button class="btn btn-success m-1" [routerLink]="['/usuarios/formulario-usuario',usuario.id]">Actualizar</button>
                 </td>
             <!-- <td *ngIf="!listaGrupos">Actualizar</button></td> -->
             <hr>
