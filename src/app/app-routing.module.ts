@@ -22,6 +22,10 @@ const routes: Routes = [
     component: FormusuarioComponent
   },
   {
+    path: 'usuarios/formulario-usuario/:id',
+    component: FormusuarioComponent
+  },
+  {
     path: 'usuarios/lista-usuarios',
     component:ListausuariosComponent
   },
@@ -56,6 +60,11 @@ const routes: Routes = [
   {
     path: 'horario/mostrar-horario',
     component: MostrarHorarioComponent
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'home'
   },
   {
     path: '**',

@@ -16,7 +16,9 @@
             </label>
         </li>
         <li>
-      <img src="../../../assets/usr.png" width="100" height="100" class="img-responsive center-block"/><hr>
+      <img [src]="profileUrl[0] | async" width="150" height="150" class="img-responsive center-block shadow m-auto" 
+      style="border-radius: 10px;"
+      /><hr>
     </li>
         <li>
             <a href="#" [routerLink]="['/usuarios/formulario-usuarios']">Información personal</a>

@@ -82,10 +82,12 @@ export class FormtareaComponent implements OnInit {
       console.log(this.tarea);
       this.tarea.fecha_final = this.date_order;
       this.tareaServicio.crearTarea(this.tarea);
+      this.router.navigate(['/tareas/lista-tareas']);
     }else{
       console.log(this.tarea);
       this.tarea.fecha_final = this.date_order;
       this.tareaServicio.actualizarTarea(this.id,this.tarea);
+      this.router.navigate(['/tareas/lista-tareas']);
     }
         
   }

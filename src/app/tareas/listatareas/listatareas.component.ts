@@ -21,6 +21,7 @@ export class ListatareasComponent implements OnInit {
   }
 
   getListaTareas(){
+    this.tareas = []
     this.tarSer.listaTareas().get()
       .forEach((lista) => {
 

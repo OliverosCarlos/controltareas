@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore,AngularFirestoreCollection, DocumentData} from '@angular/fire/firestore';
 import { Usuario } from '../models/Usuario'
 import { Router } from '@angular/router';
+
+import { CurrentData } from '../currentData';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +12,7 @@ export class UsuarioService {
 
   usuarioref:AngularFirestoreCollection<Usuario> = null;
 
-  constructor(private db:AngularFirestore,private router: Router) {
+  constructor(private db:AngularFirestore,private router: Router,private currentData : CurrentData) {
     this.usuarioref = db.collection(this.dbPath);
    }
 
@@ -42,7 +44,9 @@ export class UsuarioService {
       }
       snapshot.forEach(doc => {
         console.log("Existe : "+doc.id, '=>', doc.data());
-        this.router.navigate(['']);
+        this.currentData.setIdUsuario(doc.id);
+        this.router.navigate(['usuarios/formulario-usuario',doc.id]);
+
       });
     })
     .catch(err => {

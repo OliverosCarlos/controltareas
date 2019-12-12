@@ -67,6 +67,7 @@ usuario:Usuario = {
   saveUsuario(){
     console.log(this.usuario);
     this.usuServ.crearUsuario(this.usuario);
+    this.router.navigate(['/usuarios/lista-usuarios']);
   }
 
   onSubmit(form:NgForm){
