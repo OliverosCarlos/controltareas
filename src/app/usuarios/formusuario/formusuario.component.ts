@@ -20,14 +20,7 @@ export class FormusuarioComponent implements OnInit {
   constructor(private usuarioServicio:UsuarioService) { }
 
   ngOnInit() {
-<<<<<<< HEAD
     
-=======
-
-   
-    
-
->>>>>>> dcc949d9141d3f92847e8024f810fa17bc1a0520
   }
 
 

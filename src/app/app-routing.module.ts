@@ -54,6 +54,10 @@ const routes: Routes = [
     component: FormularioHorarioComponent
   },
   {
+    path: 'horario/mostrar-horario',
+    component: MostrarHorarioComponent
+  },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: 'home'
